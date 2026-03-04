@@ -11,6 +11,17 @@ class questions:
         self.i = input("Id")
         print("hello",self.n)
   
-    
+    def test(self):
+       a = random.randint(1,20)
+       b = random.randint(1,20)
+       c = a+b
+
+       answer = input ("enter answer")
+       if answer==c:
+           print("correct")
+       else:
+           print("wrong it",c)
+   
+
 
 
