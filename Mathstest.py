@@ -25,6 +25,12 @@ class questions:
     def save(self):
         with open ("scores.txt","a") as f:
             f.write("student:",self.n, "id:",self.i,"score:",c)
+    
+    def history(self):
+        with open ("scores.txt","r") as f:
+        print(f.read())
+
+
 
 
    
