@@ -8,16 +8,15 @@ class questions:
         self.score=0
 
     def student(self):
-        self.n = input("name")
-        self.i = input("Id")
-        print("hello",self.n)
+
+        print("hello",self.name)
   
     def test(self):
        a = random.randint(1,20)
        b = random.randint(1,20)
        c = a+b
 
-       answer = input ("whats {a} + {b}?")
+       answer = int(input (f"whats {a} + {b}?"))
        if answer==c:
            print("correct")
            self.score += 1
@@ -26,13 +25,18 @@ class questions:
 
     def save(self):
         with open ("scores.txt","a") as f:
-            f.write("student: {self.n} id:"{self.i} score: {self.score}")
+            f.write(f"student: {self.name} id: {self.id} score: {self.score}"/n)
     
     def history(self):
         with open ("scores.txt","r") as f:
          print(f.read())
+        
+name = input("name")
+id = input("Id")
 
-maths = questions()
+maths = questions(name,id)
+maths.student()
+maths.test()
 maths.save()
 maths.history()
 
