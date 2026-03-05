@@ -21,6 +21,12 @@ class questions:
            print("correct")
        else:
            print("wrong it",c)
+
+    def save(self):
+        with open ("scores.txt","a") as f:
+            f.write("student:",self.n, "id:",self.i,"score:",c)
+
+
    
 
 
