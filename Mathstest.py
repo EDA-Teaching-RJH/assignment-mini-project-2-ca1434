@@ -25,7 +25,7 @@ class questions:
 
     def save(self):
         with open ("scores.txt","a") as f:
-            f.write(f"student: {self.name} id: {self.id} score: {self.score}"/n)
+            f.write(f"student: {self.name} id: {self.id} score: {self.score}/n")
     
     def history(self):
         with open ("scores.txt","r") as f:
@@ -40,8 +40,23 @@ maths.test()
 maths.save()
 maths.history()
 
+while true:
+    print("1.test 2.view test history 3.delete history 4.quit")
+    choice = input("choose option")
 
-   
+    if choice == 1:
+      maths.test()
+    elif choice == 2:
+        maths.history()
+    elif choice == 3:
+        maths.delete
+    elif choice == 4:
+        print("goodbye")
+        break
+    else:
+        print("invalid")
+    
+    
 
 
 

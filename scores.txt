@@ -1,1 +1,1 @@
-student: {self.name} id: {self.id} score: {self.score}student: n id: 7 score: 0
+student: {self.name} id: {self.id} score: {self.score}student: n id: 7 score: 0student: n id: 9 score: 1/nstudent: n id: 9 score: 0/n
