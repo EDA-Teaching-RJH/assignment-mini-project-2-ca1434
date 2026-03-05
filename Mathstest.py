@@ -17,7 +17,7 @@ class questions:
        b = random.randint(1,20)
        c = a+b
 
-       answer = input ("enter answer")
+       answer = input ("whats {a} + {b}?")
        if answer==c:
            print("correct")
            self.score += 1
@@ -26,7 +26,7 @@ class questions:
 
     def save(self):
         with open ("scores.txt","a") as f:
-            f.write("student:",self.n, "id:",self.i,"score:",self.score)
+            f.write("student: {self.n} id:"{self.i} score: {self.score}")
     
     def history(self):
         with open ("scores.txt","r") as f:
