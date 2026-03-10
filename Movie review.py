@@ -1,22 +1,17 @@
 import random 
 
 class questions:
-    def __init__(self,name,film,opinion)
+    def __init__(self,name,film,opinion,rating):
         self.name=name
         self.film=film
         self.opinion=opinion
+        self.rating=rating
 
     def people(self):
         print("hello",self.name)
     
     def review(self):
-        name = input ("enter name:")
-        film = input("enter movie you want to review:  ")
-        rating = input ("enter a rating between 1 and 10")
-        opinion = input ("enter your opinion about the movie:")
-
-
-        if rating <1 or >10:
+        if rating <1 or rating >10:
             print("rating between 1 and 10")
         else:
             print("review saved")
@@ -34,11 +29,16 @@ class questions:
             pass
             print("reviews deleted")
 
-show = questions(name,film,opinion)
+name = input ("enter name:")
+film = input("enter movie you want to review:  ")
+rating = int(input ("enter a rating between 1 and 10"))
+opinion = input ("enter your opinion about the movie:")
+
+show = questions(name,film,opinion,rating)
 show.review()
 show.save()
 
-while true:
+while True:
     print("1.review 2.new review 3.view review history 4.delete hisyory 5.quit")
     choice = input("choose option")
 
