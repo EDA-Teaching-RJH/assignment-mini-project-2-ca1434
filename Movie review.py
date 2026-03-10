@@ -13,5 +13,12 @@ class questions:
         rating = input ("enter a rating between 1 and 10")
         opinion = input ("enter your opinion about the movie:")
 
+        if rating <1 or >10:
+            print("rating between 1 and 10")
+        else:
+            print("review saved")
+        
+
+
         
         
