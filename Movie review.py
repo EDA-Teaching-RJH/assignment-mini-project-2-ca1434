@@ -10,9 +10,11 @@ class questions:
         print("hello",self.name)
     
     def review(self):
+        name = input ("enter name:")
         film = input("enter movie you want to review:  ")
         rating = input ("enter a rating between 1 and 10")
         opinion = input ("enter your opinion about the movie:")
+
 
         if rating <1 or >10:
             print("rating between 1 and 10")
@@ -32,7 +34,27 @@ class questions:
             pass
             print("reviews deleted")
 
+show = questions(name,film,opinion)
+show.review()
+show.save()
 
+while true:
+    print("1.review 2.new review 3.view review history 4.delete hisyory 5.quit")
+    choice = input("choose option")
+
+    if choice==1:
+        show.rewiew()
+    elif choice==2:
+        show.people
+    elif choice == 3:
+        show.history()
+    elif choice==4:
+        show.delete()
+    elif choice==5:
+        print("goodbye")
+        break
+    else:
+        print("invalid")
     
 
 
