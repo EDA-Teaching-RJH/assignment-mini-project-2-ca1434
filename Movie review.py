@@ -27,6 +27,15 @@ class questions:
         with open("scores.txt","r") as f:
             print(f.read())
 
+    def delete(self):
+        with open("scores.txt","w") as f:
+            pass
+            print("reviews deleted")
+
+
+    
+
+
 
 
         
