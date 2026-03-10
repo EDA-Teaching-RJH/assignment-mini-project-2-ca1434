@@ -1,9 +1,10 @@
 import random 
 
 class questions:
-    def __init__(self,name)
+    def __init__(self,name,film,opinion)
         self.name=name
-        self.Mscore=0
+        self.film=film
+        self.opinion=opinion
 
     def people(self):
         print("hello",self.name)
@@ -17,7 +18,13 @@ class questions:
             print("rating between 1 and 10")
         else:
             print("review saved")
-        
+
+    def save(self):
+        with open ("scores.txt","a") as f:
+            f.write(f"reviewer nane: {self.name} movie:{self.film} rating:{self.rating} opinion: {self.opinion}")
+
+    
+
 
 
         
