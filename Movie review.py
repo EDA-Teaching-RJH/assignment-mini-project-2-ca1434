@@ -23,7 +23,9 @@ class questions:
         with open ("scores.txt","a") as f:
             f.write(f"reviewer nane: {self.name} movie:{self.film} rating:{self.rating} opinion: {self.opinion}")
 
-    
+    def history(self):
+        with open("scores.txt","r") as f:
+            print(f.read())
 
 
 
