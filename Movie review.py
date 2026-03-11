@@ -6,12 +6,6 @@ class questions:
         self.film=film
         self.opinion=opinion
         self.rating=rating
-
-    def check(self):
-        if re.search(r"[aa-zA-Z]{2}[0-9]{2}"):
-            print("valid")
-        else:
-            print("not valid")
     
     def review(self):
         if rating <1 or rating >10:
@@ -39,13 +33,19 @@ while True:
     choice = input("choose option")
 
     if choice=="1":
-        user = input("enter username")
+        while True:
+         user = input("enter username")
+         if re.search(r"[a-zA-Z]{2}[0-9]{2}",user):
+            print("valid")
+            break
+         else:
+            print("not valid")
+
         film = input("enter movie you want to review:  ")
         rating = int(input ("enter a rating between 1 and 10"))
         opinion = input ("enter your opinion about the movie:")
        
         show = questions(user,film,opinion,rating)
-        show.check()
         show.review()
         show.save()
     
