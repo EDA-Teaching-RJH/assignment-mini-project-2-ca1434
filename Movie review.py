@@ -1,4 +1,4 @@
-import random 
+import re 
 
 class questions:
     def __init__(self,user,film,opinion,rating):
@@ -6,6 +6,12 @@ class questions:
         self.film=film
         self.opinion=opinion
         self.rating=rating
+
+    def check(self):
+        if re.search(r"[aa-zA-Z]{2}[0-9]{2}"):
+            print("valid")
+        else:
+            print("not valid")
     
     def review(self):
         if rating <1 or rating >10:
@@ -29,7 +35,7 @@ class questions:
 
 while True:
     print("hello")
-    print("1.new review /n2.view review history /n3.delete history /n4.quit")
+    print("1.new review \n2.view review history \n3.delete history \n4.quit")
     choice = input("choose option")
 
     if choice=="1":
@@ -37,7 +43,9 @@ while True:
         film = input("enter movie you want to review:  ")
         rating = int(input ("enter a rating between 1 and 10"))
         opinion = input ("enter your opinion about the movie:")
+       
         show = questions(user,film,opinion,rating)
+        show.check()
         show.review()
         show.save()
     
