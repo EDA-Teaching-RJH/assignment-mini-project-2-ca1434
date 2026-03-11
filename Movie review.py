@@ -1,14 +1,11 @@
 import random 
 
 class questions:
-    def __init__(self,name,film,opinion,rating):
-        self.name=name
+    def __init__(self,user,film,opinion,rating):
+        self.user=user
         self.film=film
         self.opinion=opinion
         self.rating=rating
-
-    def people(self):
-        print("hello",self.name)
     
     def review(self):
         if rating <1 or rating >10:
@@ -18,7 +15,7 @@ class questions:
 
     def save(self):
         with open ("scores.txt","a") as f:
-            f.write(f"reviewer nane: {self.name} movie:{self.film} rating:{self.rating} opinion: {self.opinion}")
+            f.write(f"reviewer nane: {self.user} movie:{self.film} rating:{self.rating} opinion: {self.opinion}")
 
     def history(self):
         with open("scores.txt","r") as f:
@@ -29,28 +26,26 @@ class questions:
             pass
             print("reviews deleted")
 
-name = input ("enter name:")
-film = input("enter movie you want to review:  ")
-rating = int(input ("enter a rating between 1 and 10"))
-opinion = input ("enter your opinion about the movie:")
-
-show = questions(name,film,opinion,rating)
-show.review()
-show.save()
 
 while True:
-    print("1.review 2.new review 3.view review history 4.delete hisyory 5.quit")
+    print("hello")
+    print("1.new review /n2.view review history /n3.delete history /n4.quit")
     choice = input("choose option")
 
-    if choice==1:
-        show.rewiew()
-    elif choice==2:
-        show.people
-    elif choice == 3:
+    if choice=="1":
+        user = input("enter username")
+        film = input("enter movie you want to review:  ")
+        rating = int(input ("enter a rating between 1 and 10"))
+        opinion = input ("enter your opinion about the movie:")
+        show = questions(user,film,opinion,rating)
+        show.review()
+        show.save()
+    
+    elif choice == "2":
         show.history()
-    elif choice==4:
+    elif choice=="3":
         show.delete()
-    elif choice==5:
+    elif choice=="4":
         print("goodbye")
         break
     else:
