@@ -8,10 +8,14 @@ class questions:
         self.rating=rating
     
     def review(self):
-        if rating <1 or rating >10:
-            print("rating between 1 and 10")
-        else:
-            print("review saved")
+        while True:
+         if self.rating >=1 and self.rating <=10:
+              print("review saved")
+              break   
+         else:
+             print("rating between 1 and 10")
+             self.rating = int(input ("enter a rating between 1 and 10"))
+           
 
     def save(self):
         with open ("scores.txt","a") as f:
@@ -43,7 +47,13 @@ while True:
 
         film = input("enter movie you want to review:  ")
         rating = int(input ("enter a rating between 1 and 10"))
-        opinion = input ("enter your opinion about the movie:")
+        
+        while True:
+         opinion = input ("enter your opinion about the movie:")
+         if re.search(r"[a-zA-Z]",user):
+            break
+         else:
+            print("opinion cant be empty")
        
         show = questions(user,film,opinion,rating)
         show.review()
