@@ -1,6 +1,6 @@
 import re 
 import unittest 
-from movie import questions
+from Movie import questions
 
 class testquestions(unittest.TestCase):
 
@@ -27,33 +27,39 @@ class testquestions(unittest.TestCase):
         self.assertFalse( re.search(r"^[a-zA-Z]",f))
     
     def test_rating(self):
-        g="8"
-        h="2"
+        g=8
+        h=2
         self.assertTrue( 1<=g<=10)
         self.assertTrue( 1<=h<=10)
 
     def test_notrating(self):
-        i="15"
-        j="0"
-        self.assertTrue( 1<=i<=10)
-        self.assertTrue( 1<=j<=10)
+        i=15
+        j=0
+        self.assertFalse( 1<=i<=10)
+        self.assertFalse( 1<=j<=10)
 
     def test_save(self):
         s=questions("er66","spiderman","Amazing","10")
         s.save()
         with open("scores.txt","r")as f:
-            self.assertIn("er66",f.read())
-            self.assertIn("spiderman",f.read())
-            self.assertIn("Amazing",f.read())
-            self.assertIn("10",f.read())
+            content = f.read()
+
+            self.assertIn("er66",content)
+            self.assertIn("spiderman",content)
+            self.assertIn("Amazing",content)
+            self.assertIn("10",content)
 
     def test_delete(self): 
         p=questions("fh97","Ironman","good","9")
         p.save()
         p.delete()
+        
         with open ("scores.txt","r") as f:
-             self.assertNotIn("fh97",f.read())
-             self.assertNotIn("Ironman",f.read())
-             self.assertNotIn("good",f.read())
-             self.assertNotIn("9",f.read())
+             content = f.read()
+             self.assertNotIn("fh97",content)
+             self.assertNotIn("Ironman",content)
+             self.assertNotIn("good",content)
+             self.assertNotIn("9",content)
 
+if __name__=="__main__":
+    unittest.main()
