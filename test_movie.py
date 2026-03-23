@@ -37,3 +37,23 @@ class testquestions(unittest.TestCase):
         j="0"
         self.assertTrue( 1<=i<=10)
         self.assertTrue( 1<=j<=10)
+
+    def test_save(self):
+        s=questions("er66","spiderman","Amazing","10")
+        s.save()
+        with open("scores.txt","r")as f:
+            self.assertIn("er66",f.read())
+            self.assertIn("spiderman",f.read())
+            self.assertIn("Amazing",f.read())
+            self.assertIn("10",f.read())
+
+    def test_delete(self): 
+        p=questions("fh97","Ironman","good","9")
+        p.save()
+        p.delete()
+        with open ("scores.txt","r") as f:
+             self.assertNotIn("fh97",f.read())
+             self.assertNotIn("Ironman",f.read())
+             self.assertNotIn("good",f.read())
+             self.assertNotIn("9",f.read())
+
