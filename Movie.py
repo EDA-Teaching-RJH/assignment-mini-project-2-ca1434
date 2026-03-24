@@ -18,25 +18,39 @@ class questions:
            
 
     def save(self):
-        with open ("scores.txt","a") as f:
-            f.write(f"reviewer nane: {self.user} movie:{self.film} rating:{self.rating} opinion: {self.opinion}")
+        with open ("review.txt","a") as f:
+            f.write(f"reviewer name: {self.user} movie:{self.film} rating:{self.rating} opinion: {self.opinion}\n")
 
 
     def history(self):
-        with open("scores.txt","r") as f:
+        with open("review.txt","r") as f:
             print(f.read())
 
     def delete(self):
-        with open("scores.txt","w") as f:
+        with open("review.txt","w") as f:
             pass
             print("reviews deleted")
-   
+
+    def search(self):
+       look = input("enter name").title()
+       with open("review.txt","r") as f:
+          for line in f:
+             if look in line:
+                print(line)
 
 def main():
+ 
  while True:
+    show=questions("","","",0)
     print("hello")
-    print("1.new review \n2.view review history \n3.delete history \n4.quit")
-    choice = input("choose option")
+    print("1.new review \n2.view review history \n3.delete history \n4.saerch movie review \n5.quit")
+    
+    try:
+     choice = input("choose option")
+    except ValueError:
+       print("must be a number from menu")
+    
+    
     match choice:
      case"1":
         while True:
@@ -47,12 +61,12 @@ def main():
          else:
             print("not valid")
 
-        film = input("enter movie you want to review:  ")
+        film = input("enter movie you want to review:  ").title()
         rating = int(input ("enter a rating between 1 and 10"))
         
         while True:
          opinion = input ("enter your opinion about the movie:")
-         if re.search(r"[a-zA-Z]",user):
+         if re.search(r"[a-zA-Z]",opinion):
             break
          else:
             print("opinion cant be empty")
@@ -65,11 +79,13 @@ def main():
         show.history()
      case"3":
         show.delete()
-     case"4":
+     case "4":
+         show.search()
+     case"5":
         print("goodbye")
         break
      case _:
-       print("invalid")
+       print("invalid choice")
 if __name__=="__main__":
      main()
 

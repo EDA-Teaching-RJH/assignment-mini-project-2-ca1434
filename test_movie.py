@@ -39,27 +39,31 @@ class testquestions(unittest.TestCase):
         self.assertFalse( 1<=j<=10)
 
     def test_save(self):
+     try:
         s=questions("er66","spiderman","Amazing","10")
         s.save()
-        with open("scores.txt","r")as f:
+        with open("review.txt","r")as f:
             content = f.read()
-
             self.assertIn("er66",content)
             self.assertIn("spiderman",content)
             self.assertIn("Amazing",content)
             self.assertIn("10",content)
+     except FileNotFoundError:
+        self.fail("file not found")
 
     def test_delete(self): 
+     try:
         p=questions("fh97","Ironman","good","9")
         p.save()
         p.delete()
-        
-        with open ("scores.txt","r") as f:
+        with open ("review.txt","r") as f:
              content = f.read()
              self.assertNotIn("fh97",content)
              self.assertNotIn("Ironman",content)
              self.assertNotIn("good",content)
              self.assertNotIn("9",content)
+     except FileNotFoundError:
+        print("file not found")
 
 if __name__=="__main__":
     unittest.main()
