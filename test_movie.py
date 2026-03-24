@@ -38,6 +38,17 @@ class testquestions(unittest.TestCase):
         self.assertFalse( 1<=i<=10)
         self.assertFalse( 1<=j<=10)
 
+    def test_search(self):
+       s=questions("oo99","Avengers","good","9")
+       s.save()
+       with open("review.txt","r")as f:
+          content=f.read()
+       self.assertIn("Avengers",content)
+
+
+
+    
+
     def test_save(self):
      try:
         s=questions("er66","spiderman","Amazing","10")

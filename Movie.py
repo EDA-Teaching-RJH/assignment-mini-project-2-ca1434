@@ -1,4 +1,5 @@
 import re 
+import own_lib
 
 class questions:
     def __init__(self,user,film,opinion,rating):
@@ -55,7 +56,7 @@ def main():
      case"1":
         while True:
          user = input("enter username")
-         if re.search(r"[a-zA-Z]{2}[0-9]{2}",user):
+         if own_lib.vuser(user):
             print("valid")
             break
          else:
@@ -66,10 +67,10 @@ def main():
         
         while True:
          opinion = input ("enter your opinion about the movie:")
-         if re.search(r"[a-zA-Z]",opinion):
+         if own_lib.vopinion(opinion):
             break
          else:
-            print("opinion cant be empty")
+            print("opinion has to be words and cannot be empty")
        
         show = questions(user,film,opinion,rating)
         show.review()
