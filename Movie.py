@@ -1,4 +1,3 @@
-import re 
 import own_lib
 
 class questions:
@@ -33,7 +32,7 @@ class questions:
             print("reviews deleted")
 
     def search(self):
-       look = input("enter name").title()
+       look = input("enter movie name").title()
        with open("review.txt","r") as f:
           for line in f:
              if look in line:
@@ -44,7 +43,7 @@ def main():
  while True:
     show=questions("","","",0)
     print("hello")
-    print("1.new review \n2.view review history \n3.delete history \n4.saerch movie review \n5.quit")
+    print("1.new review \n2.view review history \n3.delete history \n4.search movie review \n5.quit")
     
     try:
      choice = input("choose option")
@@ -63,8 +62,14 @@ def main():
             print("not valid")
 
         film = input("enter movie you want to review:  ").title()
-        rating = int(input ("enter a rating between 1 and 10"))
         
+        while True:
+         try: 
+           rating = int(input ("enter a rating between 1 and 10"))
+           break
+         except ValueError:
+           print("rating must be a number")
+
         while True:
          opinion = input ("enter your opinion about the movie:")
          if own_lib.vopinion(opinion):
