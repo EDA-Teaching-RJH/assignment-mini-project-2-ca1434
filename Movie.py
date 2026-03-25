@@ -59,7 +59,7 @@ def main():
             print("valid")
             break
          else:
-            print("not valid")
+            print("not valid must be 2 letters then 2 numbers")
 
         film = input("enter movie you want to review:  ").title()
         
